@@ -18,9 +18,9 @@
 
 我當然也是這樣想的呀。所以秉持著試用過多家雲端的經驗，那就是在cloud的管理頁面中找到了如圖的設定之後快速的一路設定下去，同時也把ufw與iptables這兩個防火牆service全部關掉了。應該也就一帆風順了吧？這個… 就是Oracle跟其他雲端商的差距所在了…。
 
-![alt text]（https://i.imgur.com/77WA1GC.png ）
+![OCI設定]（img/OCI設定.png ）
 
-![alt text]（https://i.imgur.com/Ag8TiKd.png ）
+![OCI設定2]（img/OCI設定2.png ）
 
 後來當然還是不行囉。怎麼會讓你這麼簡單就能動呢，如果是這樣，就不會有這篇文章了…。
 
@@ -30,10 +30,16 @@
 
 沒有想法之下，只好轉往試試看設定一下OS裡面的防火牆，結果…，下service iptables status吐出inactive的iptables居然持續在作用中（如圖）！！！，另外還不能直接設定所有TCP流量全開…。
 
-![alt text]（https://i.imgur.com/QeWjV7o.png ）
+![iptables.service]（img/iptables.service.png ）
 
 所以只好把iptables跟ufw兩個services掛回來，接著乖乖設定好http跟https的ports。噹噹，成功了…，居然基於一些迷之原因，被停掉的服務還能持續產生影響，不能用把防火牆關閉就當作沒有防火牆。
 
 ## 懶人包與筆記
 
 可能是因為OS為Oracle修改過的版本，OS的防火牆似乎禁止被關閉（或者關閉無效），因此… 如果使用Oracle OCI的話，不能貪圖方便關掉OS內部的防火牆，請好好的設定port的部份…。
+
+可以嘗試參考 [Can't access Oracle Cloud Always Free Compute http port] 以及 [Opening port 80 on Oracle Cloud Infrastructure Compute node] 這兩篇文章貼文。
+
+[Can't access Oracle Cloud Always Free Compute http port]:https://stackoverflow.com/questions/62326988/cant-access-oracle-cloud-always-free-compute-http-port
+
+[Opening port 80 on Oracle Cloud Infrastructure Compute node]:https://stackoverflow.com/questions/54794217/opening-port-80-on-oracle-cloud-infrastructure-compute-node
