@@ -27,4 +27,4 @@ Nginx, Cloudflare DNS, Python, Django, Restful API, Bootstrap, Javascript, Axios
 
 簡言之，目前後端的部份已經大體完成，剩下前端畫面的部份需要進行實現。
 
-[microdevjames.ga]:microdevjames.ga
+[microdevjames.ga]:http://microdevjames.ga
